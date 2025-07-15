@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const getPanchang = require("mhah-panchang"); // ← Это функция
+const { getPanchang } = require("mhah-panchang"); // <-- ВАЖНО
 
 const app = express();
 const port = process.env.PORT || 3000;
