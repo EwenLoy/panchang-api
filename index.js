@@ -1,7 +1,6 @@
-// ПОЛНЫЙ ИСПРАВЛЕННЫЙ КОД
 const express = require("express");
 const cors = require("cors");
-const getPanchang = require("mhah-panchang");
+const panchang = require("mhah-panchang"); // Импортируем как объект
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,7 +19,7 @@ app.get("/panchang", async (req, res) => {
   } = req.query;
 
   try {
-    const result = await getPanchang({
+    const result = await panchang.calculate({
       date: new Date(date),
       latitude: parseFloat(latitude),
       longitude: parseFloat(longitude),
