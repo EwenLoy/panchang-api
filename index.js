@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const panchang = require("mhah-panchang"); // Импортируем как объект
+const getPanchang = require("mhah-panchang"); // ← Это функция
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,7 +19,7 @@ app.get("/panchang", async (req, res) => {
   } = req.query;
 
   try {
-    const result = await panchang.calculate({
+    const result = await getPanchang({
       date: new Date(date),
       latitude: parseFloat(latitude),
       longitude: parseFloat(longitude),
